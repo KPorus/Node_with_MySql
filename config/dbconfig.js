@@ -1,9 +1,9 @@
 module.exports = {
-  host: "localhost",
-  user: "root",
-  pass: "",
-  db: "node_with_mysql",
-  dialect: "mysql",
+  host: process.env.host,
+  user: process.env.user,
+  pass: process.env.pass,
+  db: process.env.db,
+  dialect: process.env.dialect,
   pool: {
     max: 5,
     min: 0,
