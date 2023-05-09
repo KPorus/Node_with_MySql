@@ -1,6 +1,6 @@
-const db = require("../models");
+const DB = require("../models");
 
-const user = db.users;
+const userModal = DB.users;
 
 exports.adduser = async (req, res) => {
   let user = {
@@ -9,7 +9,7 @@ exports.adduser = async (req, res) => {
     pass: req.body.pass,
   };
 
-  let result = await user.create(user);
+  let result = await userModal.create(user);
   res.status(200).json({
     status: "success",
     result,
@@ -17,10 +17,8 @@ exports.adduser = async (req, res) => {
 };
 
 exports.getAllusers = async (req, res)=>{
-    let users = await user.findAll({
-        attributes: [
-            'name','email'
-        ]
+    let users = await userModal.findAll({
+      attributes: ["name", "email"],
     });
     console.log(users);
     if(users)

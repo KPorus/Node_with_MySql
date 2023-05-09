@@ -16,6 +16,11 @@ app.use(
   express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 1000000 })
 );
 
+// routers
+const router = require("./routes/allRoute");
+
+app.use("/api/users", router)
+
 app.get("/", (req, res) => {
   res.send("I am watching you");
 });

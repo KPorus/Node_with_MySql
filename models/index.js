@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   dbconfig.pass,
   {
     host:dbconfig.host,
-    dialect: dbconfig.db,
+    dialect: "mysql",
     operatorAliases: false,
   },
   dbconfig.pool
@@ -24,7 +24,7 @@ const DB = {}
 DB.Sequelize = Sequelize
 DB.sequelize = sequelize
 
-DB.users = require("./userModel.js")(sequelize,DataTypes)
+DB.users = require("./userModel.js")(sequelize, DataTypes);
 
 DB.sequelize.sync({force: false}).then(()=>{
     console.log("sync database done")
