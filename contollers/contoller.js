@@ -5,8 +5,9 @@ const userModal = DB.users;
 exports.adduser = async (req, res) => {
   let user = {
     name: req.body.name,
-    email: req.body.email,
-    pass: req.body.pass,
+    address: req.body.address,
+    gender:req.body.gender,
+    phone: req.body.phone,
   };
 
   let result = await userModal.create(user);
@@ -18,7 +19,7 @@ exports.adduser = async (req, res) => {
 
 exports.getAllusers = async (req, res)=>{
     let users = await userModal.findAll({
-      attributes: ["name", "email"],
+      attributes: ["name", "phone", "address","id"],
     });
     console.log(users);
     if(users)
